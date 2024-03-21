@@ -8,10 +8,10 @@
     @foreach (var item in Model)
     {
         <div class="col-md-4 col-xs-6 border-primary mb-3">
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
+            <div class="card mb-3" style="max-width: 500px;max-height:max-content;" >
+                <div class="row g-0" style="text-size-adjust:auto">
                     <div class="col-md-12">
-                        <div class="card-header text-white bg-info">
+                        <div class="card-header text-white " style="background-color:darkmagenta">
                             <p class="card-text">
                                 <h5 class="card-title">
                                     @item.Name
@@ -24,15 +24,15 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img src="@item.ImageURL" width="100%" alt="@item.Name">
+                        <img src="@item.ImageURL" width="200" alt="@item.Name">
                     </div>
                     <div class="col-md-6">
                         <div class="card-body">
                             <p class="card-text">@item.Description</p>
-                            <p class="card-text"><b>Cinema: </b>@item.Cinema.Name</p>
+                            <p class="card-text"><b>Store: </b>@item.Cinema.Name</p>
                             <p class="card-text"><b>Category: </b>@item.MovieCategory</p>
-                            <p class="card-text"><b>Start Date: </b>@item.StartDate.ToString("dd MMM yy")</p>
-                            <p class="card-text"><b>End Date: </b>@item.EndDate.ToString("dd MMM yy")</p>
+                            <p class="card-text"><b>Release Date: </b>@item.StartDate.ToString("dd MMM yy")</p>
+                            <p class="card-text"><b>Solde Date: </b>@item.EndDate.ToString("dd MMM yy")</p>
                             <p class="card-text ">
                                 <b>Status: </b>
                                 @if (DateTime.Now >= item.StartDate && DateTime.Now <= item.EndDate)
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <div class="card-footer ">
+                        <div class="card-footer " style="background-color:lightgreen">
                             <p class="card-text">
                                 <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="@item.Id">
                                     <i class="bi bi-eye-fill"></i> Show Details
@@ -61,7 +61,7 @@
                                    asp-controller="Orders" 
                                    asp-action="AddItemToShoppingCart" 
                                    asp-route-id="@item.Id">
-                                <i class="bi bi-cart-plus"></i> Add to Cart (Price @item.Price.ToString("c"))</a>
+                                <i class="bi bi-cart-plus"></i> Add to Cart (Price @item.Price MAD)</a>
                             </p>
                         </div>
                     </div>
